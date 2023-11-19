@@ -2,8 +2,6 @@
 # cmake -D SOURCE_CODE=(ソース名)で上書き可
 set(SOURCE_FILE src) 
 file( GLOB MY_SOURCE ${SOURCE_FILE}/*.cpp ${SOURCE_FILE}/*.hpp )
-# file( GLOB MY_SOURCE ${SOURCE_FILE}/*.cpp )
-# file( GLOB MY_HEADER ${SOURCE_FILE}/header/*.hpp )
 
 # CMakeの最低バージョンを記述
 cmake_minimum_required(VERSION 2.8)

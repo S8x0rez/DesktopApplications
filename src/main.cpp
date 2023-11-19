@@ -5,6 +5,7 @@ int main(){
 
 	while(true){
 		frame->imgShow();
+		
         char key = cv::waitKey(50) & 0xFF;
         if (key == 'q') {
             break;
