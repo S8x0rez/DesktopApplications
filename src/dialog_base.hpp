@@ -7,7 +7,6 @@
 
 using namespace std;
 
-void onMouse(int event, int x, int y, int flags, void* param);
 
 class DialogBase{
     int window_height;
@@ -27,6 +26,9 @@ class DialogBase{
 public:
     DialogBase(string);
     ~DialogBase();
+
+    static void onMouse(int, int, int, int, void*);
+    void onMouse(int, int, int, int);
 
     int getInputAreaWidth();
     cv::Vec3b getValueAtCursor(int , int);

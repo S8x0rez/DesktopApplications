@@ -14,34 +14,38 @@ DialogBase::DialogBase(string s){
 	input_area = cv::Mat::zeros(window_height, input_area_width, CV_8UC3);
 	cv::namedWindow(title, cv::WINDOW_NORMAL);
 	cv::resizeWindow(title, window_width, window_height);
-	cv::setMouseCallback(title, onMouse, this);
+	cv::setMouseCallback(title, &DialogBase::onMouse, this);
 }
 
 DialogBase::~DialogBase(){}
 
-void onMouse(int event, int x, int y, int flags, void* param) {
+void DialogBase::onMouse(int event, int x, int y, int flags, void* param){
     DialogBase* img = static_cast<DialogBase*>(param);
+	img->onMouse(event, x, y, flags);
+}
+
+void DialogBase::onMouse(int event, int x, int y, int flags) {
 
 	switch (event) {
     	case cv::EVENT_LBUTTONDOWN:
-			if(x > img->getInputAreaWidth()){
-				if(img->getValueAtCursor(y, x) == cv::Vec3b(100, 100, 100)) {
-					img->setWhileScroll(true);
+			if(x > getInputAreaWidth()){
+				if(getValueAtCursor(y, x) == cv::Vec3b(100, 100, 100)) {
+					setWhileScroll(true);
 				}
 			}
 			break;
 
 		case cv::EVENT_LBUTTONUP:
-			if (img->getWhileScroll()) {
-				img->setWhileScroll(false);
-				img->setScrollbar();
+			if (getWhileScroll()) {
+				setWhileScroll(false);
+				setScrollbar();
 			}
 			break;
 
 		case cv::EVENT_MOUSEMOVE:
-			if (img->getWhileScroll()) {
-				img->setScrollPosi(y);
-				img->setScrollbar();
+			if (getWhileScroll()) {
+				setScrollPosi(y);
+				setScrollbar();
 			}
 			break;
     }
