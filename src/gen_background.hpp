@@ -1,4 +1,4 @@
-#ifndef _HEADER_FILE_H_
-#define _HEADER_FILE_H_
+#ifndef _GEN_BACKGROUND_H_
+#define _GEN_BACKGROUND_H_
 
-#endif //_HEADER_FILE_H_
+#endif

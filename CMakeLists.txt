@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 2.8)
 find_package( OpenCV REQUIRED )
 
 #ヘッダファイルのパスを指定
-include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories( ${OpenCV_INCLUDE_DIRS} ${SOURCE_FILE}/frame_work)
 
 # 実行ファイル名とソース指定（ここではソースと同じ名前の実行ファイルを作ります）
 add_executable( main ${MY_SOURCE} )
